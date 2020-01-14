@@ -1,0 +1,17 @@
+/*program written by ruby on Jan 14 2020 
+ * blink assignment
+ */
+void setup() {
+  pinMode(13, OUTPUT); //using pin 13
+}
+
+void loop() {
+  digitalWrite(13, HIGH);
+  delay(500);
+  digitalWrite(13, LOW);
+  delay(1000);
+  digitalWrite(13, HIGH);
+  delay(2000);
+  digitalWrite(13, LOW);
+  delay(4000);
+}
