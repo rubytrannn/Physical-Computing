@@ -1,17 +1,67 @@
-/*program written by ruby on Jan 14 2020 
- * blink assignment
+/*program "Blink Assignment" written by Ruby Tran on Jan 14, 2020 
+ * The assignment is an exploration of LED lights and how to use code to mangage the how they are lightened up
+ * Resources taken from in class code and example in the public domain
  */
+ 
 void setup() {
   pinMode(13, OUTPUT); //using pin 13
+  pinMode(12, OUTPUT); //using pin 12
+  pinMode(7, OUTPUT);
+  // not setup is needed for fading
 }
+
+// fading code is partly taken from the example in the public domain created by David A. Mellis and modified by Tom Igoe
+int ledPin = 9; // LED connected to digital pin 9
+int ledPin2 = 5; // LED connected to digital pin 5
 
 void loop() {
   digitalWrite(13, HIGH);
-  delay(500);
+  delay(100);
   digitalWrite(13, LOW);
-  delay(1000);
-  digitalWrite(13, HIGH);
-  delay(2000);
-  digitalWrite(13, LOW);
-  delay(4000);
+  delay(100);
+
+  // fade in from min to max in increments of 5 points:
+  for (int fadeValue = 0 ; fadeValue <= 300; fadeValue += 5) {
+    // sets the value (range from 0 to 300):
+    analogWrite(ledPin, fadeValue);
+    // wait for 20 milliseconds to see the dimming effect
+    delay(20);
+  }
+
+  // fade out from max to min in increments of 5 points:
+  for (int fadeValue = 300 ; fadeValue >= 0; fadeValue -= 5) {
+    // sets the value (range from 0 to 300):
+    analogWrite(ledPin, fadeValue);
+    // wait for 20 milliseconds to see the dimming effect
+    delay(20);
+  }
+  
+  digitalWrite(12, HIGH);
+  delay(200);
+  digitalWrite(12, LOW);
+  delay(350);
+
+
+  // fading for another LED 
+  // fade in from min to max in increments of 5 points:
+  for (int fadeValue = 0 ; fadeValue <= 400; fadeValue += 10) {
+    // sets the value (range from 0 to 400):
+    analogWrite(ledPin2, fadeValue);
+    // wait for 50 milliseconds to see the dimming effect
+    delay(50);
+  }
+
+  // fade out from max to min in increments of 5 points:
+  for (int fadeValue = 400 ; fadeValue >= 0; fadeValue -= 10) {
+    // sets the value (range from 0 to 400):
+    analogWrite(ledPin2, fadeValue);
+    // wait for 50 milliseconds to see the dimming effect
+    delay(50);
+  }
+
+  digitalWrite(7, HIGH);
+  delay(400);
+  digitalWrite(7, LOW);
+  delay(400);
+
 }
