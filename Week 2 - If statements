@@ -1,0 +1,62 @@
+/*program "If statements" written by Ruby Tran on Jan 21, 2020
+ * The assignment is an exploration of LED lights and how to use if else statements to control them
+ * Resources taken from in class code
+ */
+
+
+void setup() {
+  pinMode(8, INPUT); // button on pin 5
+  pinMode(13, OUTPUT); // using pin 13 for LED1
+  pinMode(12, OUTPUT); // using pin 12 for LED2
+  pinMode(7, OUTPUT); // using pin 7 for LED3
+  pinMode(4, OUTPUT); // using pin 4 for LED4
+  Serial.begin(9600); // serial read begins
+
+}
+
+void loop() {
+  Serial.println(analogRead(5)); // serial monitor will display the light censor
+
+  
+  if(analogRead(5)>970){ // If the analog censor is greater than 970
+    digitalWrite(13, HIGH);
+    digitalWrite(12, LOW);
+    digitalWrite(7, LOW); 
+    digitalWrite(4, LOW); 
+
+  } else if (analogRead(5)>960) { //If the analog censor is greater than 960
+    digitalWrite(13, LOW);
+    digitalWrite(12, HIGH);
+    digitalWrite(7, LOW);
+    digitalWrite(4, LOW);    
+
+  } else if (analogRead(5)>950) { //If the analog censor is greater than 950
+    digitalWrite(13, LOW);
+    digitalWrite(12, LOW);
+    digitalWrite(7, HIGH);
+    digitalWrite(4, LOW); 
+  } else if (analogRead(5)>910){ //If the analog censor is greater than 910
+    digitalWrite(13, LOW);
+    digitalWrite(12, LOW);
+    digitalWrite(7, LOW);
+    digitalWrite(4, HIGH);
+  } else { // If the values are different from those above
+    digitalWrite(13, LOW);
+    delay(100);
+    digitalWrite(13, HIGH);
+    delay(100);
+    digitalWrite(12, LOW);
+    delay(200);
+    digitalWrite(12, HIGH);
+    delay(200);
+    digitalWrite(7, LOW);
+    delay(50);
+    digitalWrite(7, HIGH);
+    delay(50);
+    digitalWrite(4, LOW);
+    delay(100);
+    digitalWrite(4, HIGH);
+    delay(100);
+  }
+
+
