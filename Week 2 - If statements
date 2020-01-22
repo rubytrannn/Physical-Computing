@@ -1,5 +1,5 @@
 /*program "If statements" written by Ruby Tran on Jan 21, 2020
- * The assignment is an exploration of LED lights and how to use if else statements to control them
+ * The assignment is an exploration of LED lights and how to use if else statements to control them through a light sensor
  * Resources taken from in class code
  */
 
@@ -15,27 +15,27 @@ void setup() {
 }
 
 void loop() {
-  Serial.println(analogRead(5)); // serial monitor will display the light censor
+  Serial.println(analogRead(5)); // serial monitor will display the light sensor
 
   
-  if(analogRead(5)>970){ // If the analog censor is greater than 970
+  if(analogRead(5)>970){ // If the analog sensor is greater than 970
     digitalWrite(13, HIGH);
     digitalWrite(12, LOW);
     digitalWrite(7, LOW); 
     digitalWrite(4, LOW); 
 
-  } else if (analogRead(5)>960) { //If the analog censor is greater than 960
+  } else if (analogRead(5)>960) { //If the analog sensor is greater than 960
     digitalWrite(13, LOW);
     digitalWrite(12, HIGH);
     digitalWrite(7, LOW);
     digitalWrite(4, LOW);    
 
-  } else if (analogRead(5)>950) { //If the analog censor is greater than 950
+  } else if (analogRead(5)>950) { //If the analog sensor is greater than 950
     digitalWrite(13, LOW);
     digitalWrite(12, LOW);
     digitalWrite(7, HIGH);
     digitalWrite(4, LOW); 
-  } else if (analogRead(5)>910){ //If the analog censor is greater than 910
+  } else if (analogRead(5)>910){ //If the analog sensor is greater than 910
     digitalWrite(13, LOW);
     digitalWrite(12, LOW);
     digitalWrite(7, LOW);
